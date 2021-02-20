@@ -1,0 +1,12 @@
+Rich (BB code):
+_FWDT(WDT_OFF);     // Watchdog timer off
+I'm going over my knowledge of dsPICs and I'm reading all the Microchip datasheets available.
+So far I have downloaded read and searched the following three datasheets.
+
+dsPIC30F4011/4012 Data Sheet
+dsPIC30F/33F Programmers Reference Manual
+dsPIC® Language Tools Libraries
+I was unable to locate any mention of FWDT(WDT_OFF) in any of the above PDFs.
+I have left University and now that I have the time I'm going over what I understand about PIC programming. I used the above line of code to turn off the watchdog timer but it was either taken from Microchip example programs or from lecturers examples.
+My reason for asking is I would like to know where to find it say fro example if I had no internet access and only the reference manuals I should still be able to locate the necessary syntax etc and build a program from scratch..it would appear to me that I'm missing a manual?
+Hop this makes sense!

@@ -1,0 +1,143 @@
+<application>
+  <name>FOC1</name>
+  <description></description>
+  <notes></notes>
+  <configuration>
+    <name></name>
+    <axes>
+      <com.microchip.motorbench.db.model.axis.Axis>
+        <name></name>
+        <iterations>
+          <iteration>
+            <name>active</name>
+            <description></description>
+            <notes></notes>
+            <date>2020-09-10 11:05:54</date>
+            <id>0</id>
+            <hardware>
+              <name></name>
+              <board>
+                <name>dsPICDEM MCLV-2 Development Board</name>
+                <shortName></shortName>
+                <partNumber>DM330021-2</partNumber>
+                <pwmSwitchingMinimum>1000.0</pwmSwitchingMinimum>
+                <pwmSwitchingMaximum>40000.0</pwmSwitchingMaximum>
+                <pwmDeadtimeMinimum>2.0E-6</pwmDeadtimeMinimum>
+                <pwmDeadtimeMaximum>6.0E-6</pwmDeadtimeMaximum>
+                <voltageSource>
+                  <name></name>
+                  <output>24.0</output>
+                  <maxCurrent>2.9</maxCurrent>
+                </voltageSource>
+                <inverter>
+                  <name></name>
+                  <minimumDutyCycle>5.0</minimumDutyCycle>
+                  <maximumDutyCycle>95.0</maximumDutyCycle>
+                  <minimumDcLinkVoltage>16.0</minimumDcLinkVoltage>
+                  <maximumDcLinkVoltage>26.0</maximumDcLinkVoltage>
+                  <maximumCurrent>10.0</maximumCurrent>
+                </inverter>
+                <voltageSensor>
+                  <name></name>
+                  <fullScaleReading>52.38</fullScaleReading>
+                  <equivalentTimeConstant>0.003</equivalentTimeConstant>
+                  <overVoltageTrip>28.0</overVoltageTrip>
+                </voltageSensor>
+                <currentSensor>
+                  <name></name>
+                  <fullScaleReading>4.4</fullScaleReading>
+                  <equivalentTimeConstant>1.0E-6</equivalentTimeConstant>
+                  <overcurrentTrip>3.9</overcurrentTrip>
+                  <overcurrentReset>3.8</overcurrentReset>
+                </currentSensor>
+              </board>
+              <processor>
+                <name></name>
+                <partNumber>dsPIC33EP256MC506</partNumber>
+                <allowedADCResolutions>
+                  <int>10</int>
+                  <int>12</int>
+                </allowedADCResolutions>
+                <adcResolution>10</adcResolution>
+                <pimPartNumber>MA330031-2</pimPartNumber>
+                <pimDescription>This plug-in module comes with a 64-pin dsPIC33EP256MC506 TQFP device. It enables using the OpAmps on the MCLV-2 and MCHV-2 boards. It can be used with the Microchip MCHV-2 [DM330023-2] and MCLV-2 [DM330021-2]. This PIM is not compatible with the MCLV[DM330021] and MCHV[DM330023]. Use the MA330028 with the MCLV and MCHV development boards.</pimDescription>
+                <processorClock>7.0E7</processorClock>
+                <pwmSwitching>20000.0</pwmSwitching>
+                <pwmDeadtime>2.0E-6</pwmDeadtime>
+                <omegaRMin>52.359878</omegaRMin>
+              </processor>
+            </hardware>
+            <load class="constantLoad">
+              <name>Constant Load</name>
+            </load>
+            <estimator class="pllEstimator">
+              <name>PLL</name>
+              <type>PLL</type>
+              <delayTime1>1.0E-4</delayTime1>
+              <delayTime2>5.0E-5</delayTime2>
+              <timeConstant>0.00219</timeConstant>
+              <normalizedCutoffFrequency>732.0</normalizedCutoffFrequency>
+              <linearizationReferenceFrequency>125.66371</linearizationReferenceFrequency>
+            </estimator>
+            <algorithm class="FocAlgorithm">
+              <name>FOC</name>
+              <type>FOC</type>
+            </algorithm>
+            <selfCommissionMethod class="com.microchip.motorbench.db.model.axis.sc.pmsm.foc.PmsmFocSelfCommissionMethod">
+              <name></name>
+              <selfCommissionResult class="com.microchip.motorbench.db.model.axis.sc.pmsm.foc.PmsmFocSelfCommissionResult">
+                <name></name>
+                <windingResistance>
+                  <measured>NaN</measured>
+                  <entered>NaN</entered>
+                  <override>false</override>
+                </windingResistance>
+                <windingInductanceLq>
+                  <measured>NaN</measured>
+                  <entered>NaN</entered>
+                  <override>false</override>
+                </windingInductanceLq>
+                <windingInductanceLd>
+                  <measured>NaN</measured>
+                  <entered>NaN</entered>
+                  <override>false</override>
+                </windingInductanceLd>
+                <bemfConstant>
+                  <measured>NaN</measured>
+                  <entered>NaN</entered>
+                  <override>false</override>
+                </bemfConstant>
+                <inertia>
+                  <measured>NaN</measured>
+                  <entered>NaN</entered>
+                  <override>false</override>
+                </inertia>
+                <viscousDamping>
+                  <measured>NaN</measured>
+                  <entered>NaN</entered>
+                  <override>false</override>
+                </viscousDamping>
+                <friction>
+                  <measured>NaN</measured>
+                  <entered>NaN</entered>
+                  <override>false</override>
+                </friction>
+              </selfCommissionResult>
+              <calibrationBusVoltage>24.0</calibrationBusVoltage>
+              <calibrationResistance>12.0</calibrationResistance>
+              <motorSpinDownTime>NaN</motorSpinDownTime>
+              <maximumMotorSpeed>2094.395102</maximumMotorSpeed>
+              <currentPhaseMargin>95.0</currentPhaseMargin>
+              <currentPhaseLag>10.0</currentPhaseLag>
+            </selfCommissionMethod>
+            <currentLoopRate>0.0</currentLoopRate>
+            <velocityLoopRate>0.0</velocityLoopRate>
+          </iteration>
+        </iterations>
+        <activeIteration reference="../iterations/iteration"/>
+        <selectedFiles/>
+      </com.microchip.motorbench.db.model.axis.Axis>
+    </axes>
+    <activeAxis reference="../axes/com.microchip.motorbench.db.model.axis.Axis"/>
+  </configuration>
+</application>
