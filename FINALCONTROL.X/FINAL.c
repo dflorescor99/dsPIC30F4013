@@ -1,11 +1,9 @@
 /*
- * File:   data_analicer.c
+ * File:   FINAL.c
  * Author: root
  *
- * Created on September 9, 2020, 7:34 PM
+ * Created on February 20, 2021, 3:57 AM
  */
-
-
 
 #include "xc.h"
 #include <p30F4013.h>

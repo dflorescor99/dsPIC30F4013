@@ -68,11 +68,11 @@ Default Scalar Model: Small
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x100               0x150           0x1f8  (504)
-.text                        0x250               0x16a           0x21f  (543)
-.dinit                       0x3ba                 0x8             0xc  (12)
+.text                        0x100               0x140           0x1e0  (480)
+.text                        0x240               0x16a           0x21f  (543)
+.dinit                       0x3aa                 0x8             0xc  (12)
 
-                 Total "program" memory used (bytes):          0x423  (1059) 2%
+                 Total "program" memory used (bytes):          0x40b  (1035) 2%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x800]
@@ -117,34 +117,34 @@ External Symbols in Program Memory (by address):
                   0x000152                  __data_init
                   0x000152                  __data_init_standard
                   0x0001c8                  __ADCInterrupt
-                  0x0001f8                  __CNInterrupt
-                  0x00024a                  __DefaultInterrupt
-                  0x000250                  _main
-                  0x00027a                  _ADC
-                  0x000298                  _CN
-                  0x0002a6                  _pwm_conf
-                  0x0002d2                  _configuarttx
-                  0x0002fc                  _writeshex
-                  0x000352                  _delay_ms
-                  0x000394                  _delay_us
+                  0x0001f0                  __CNInterrupt
+                  0x00023a                  __DefaultInterrupt
+                  0x000240                  _main
+                  0x00026a                  _ADC
+                  0x000288                  _CN
+                  0x000296                  _pwm_conf
+                  0x0002c2                  _configuarttx
+                  0x0002ec                  _writeshex
+                  0x000342                  _delay_ms
+                  0x000384                  _delay_us
 
 External Symbols in Program Memory (by name):
 
-                  0x00027a                  _ADC
-                  0x000298                  _CN
+                  0x00026a                  _ADC
+                  0x000288                  _CN
                   0x0001c8                  __ADCInterrupt
-                  0x0001f8                  __CNInterrupt
-                  0x00024a                  __DefaultInterrupt
+                  0x0001f0                  __CNInterrupt
+                  0x00023a                  __DefaultInterrupt
                   0x000152                  __data_init
                   0x000152                  __data_init_standard
                   0x00013c                  __psv_init
                   0x000100                  __resetPRI
-                  0x0002d2                  _configuarttx
-                  0x000352                  _delay_ms
-                  0x000394                  _delay_us
-                  0x000250                  _main
-                  0x0002a6                  _pwm_conf
-                  0x0002fc                  _writeshex
+                  0x0002c2                  _configuarttx
+                  0x000342                  _delay_ms
+                  0x000384                  _delay_us
+                  0x000240                  _main
+                  0x000296                  _pwm_conf
+                  0x0002ec                  _writeshex
 
 Memory Configuration
 
@@ -201,7 +201,7 @@ LOAD /opt/microchip/xc16/v1.41/bin/bin/../../lib/libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000100        0x150
+.text             0x000100        0x140
  *(.init)
  .init            0x000100         0x4c /opt/microchip/xc16/v1.41/bin/bin/../../lib/liblega-pic30-elf.a(crt0_standard.o)
                   0x000100                  __reset
@@ -213,19 +213,19 @@ LOAD /opt/microchip/xc16/v1.41/bin/bin/../../lib/libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0001c8         0x82 build/default/production/data_analicer_1.o
+ .isr.text        0x0001c8         0x72 build/default/production/data_analicer_1.o
                   0x0001c8                  __ADCInterrupt
-                  0x0001f8                  __CNInterrupt
- .isr             0x00024a          0x4 default_isr
-                  0x00024a                  __DefaultInterrupt
+                  0x0001f0                  __CNInterrupt
+ .isr             0x00023a          0x4 default_isr
+                  0x00023a                  __DefaultInterrupt
  *(.libc)
  *(.libm)
  *(.libdsp)
  *(.lib*)
  .libpic30_crt_start_mode
-                  0x00024e          0x2 /opt/microchip/xc16/v1.41/bin/bin/../../lib/liblega-pic30-elf.a(crt_start_mode_normal.Leo)
-                  0x00024e                  __crt_start_mode_normal
-                  0x00024e                  __crt_start_mode
+                  0x00023e          0x2 /opt/microchip/xc16/v1.41/bin/bin/../../lib/liblega-pic30-elf.a(crt_start_mode_normal.Leo)
+                  0x00023e                  __crt_start_mode_normal
+                  0x00023e                  __crt_start_mode
 
 usercode
  *(usercode)
@@ -283,13 +283,13 @@ userdata
  *(.debug_abbrev)
  .debug_abbrev    0x000000        0x153 build/default/production/data_analicer_1.o
 
-.debug_line       0x000000        0x15a
+.debug_line       0x000000        0x158
  *(.debug_line)
- .debug_line      0x000000        0x15a build/default/production/data_analicer_1.o
+ .debug_line      0x000000        0x158 build/default/production/data_analicer_1.o
 
-.debug_frame      0x000000        0x17c
+.debug_frame      0x000000        0x174
  *(.debug_frame)
- .debug_frame     0x000000        0x17c build/default/production/data_analicer_1.o
+ .debug_frame     0x000000        0x174 build/default/production/data_analicer_1.o
 
 .debug_str        0x000000         0x8d
  *(.debug_str)
@@ -1047,16 +1047,16 @@ __c30_signature
  .ivt._CNInterrupt
                   0x000032          0x2 build/default/production/data_analicer_1.o
 
-.text             0x000250        0x16a
- .text            0x000250        0x16a build/default/production/data_analicer_1.o
-                  0x000250                  _main
-                  0x00027a                  _ADC
-                  0x000298                  _CN
-                  0x0002a6                  _pwm_conf
-                  0x0002d2                  _configuarttx
-                  0x0002fc                  _writeshex
-                  0x000352                  _delay_ms
-                  0x000394                  _delay_us
+.text             0x000240        0x16a
+ .text            0x000240        0x16a build/default/production/data_analicer_1.o
+                  0x000240                  _main
+                  0x00026a                  _ADC
+                  0x000288                  _CN
+                  0x000296                  _pwm_conf
+                  0x0002c2                  _configuarttx
+                  0x0002ec                  _writeshex
+                  0x000342                  _delay_ms
+                  0x000384                  _delay_us
 
-.dinit            0x0003ba          0x8
- .dinit           0x0003ba          0x8 data_init
+.dinit            0x0003aa          0x8
+ .dinit           0x0003aa          0x8 data_init

@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/hondu/Downloads/MPLABXProjects/SPI.X/ST7789_HONDU.h</file>
-            <file>file:/home/hondu/Downloads/MPLABXProjects/SPI.X/display.c</file>
-            <file>file:/home/hondu/Downloads/MPLABXProjects/SPI.X/interrupt2.c</file>
-            <file>file:/home/hondu/Downloads/MPLABXProjects/SPI.X/SPImaster.c</file>
-            <file>file:/home/hondu/Downloads/MPLABXProjects/SPI.X/SPIslave.c</file>
-            <file>file:/home/hondu/Downloads/MPLABXProjects/SPI.X/SPISLAVE_IOC.c</file>
-            <file>file:/home/hondu/Downloads/MPLABXProjects/SPI.X/INTERRUPT.c</file>
-            <file>file:/home/hondu/Downloads/MPLABXProjects/SPI.X/GFX_Library.h</file>
-            <file>file:/home/hondu/Downloads/MPLABXProjects/SPI.X/SPIMASTER_IOC.c</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
