@@ -22,7 +22,7 @@ _FWDT(WDT_OFF);
 void configuarttx();
 void delay_ms (unsigned long delay_count);
 void delay_us (unsigned int delay_count);
-void writeshex(uint16_t A);
+void writeshex(uint16_t A, uint16_t B);
 void CN(void);
 void ADC(void);
 void pwm_conf(void);
@@ -39,7 +39,6 @@ int main(void)
     CN();
     ADC();
     //pwm_conf();
-    //uint16_t AD=0;
     configuarttx();
     IEC0bits.U1RXIE = 0;
     IEC0bits.U1TXIE = 0;
@@ -57,18 +56,7 @@ int main(void)
     return 0;
 }
 
-void ADC()
-{
-    ADPCFG = 0b1111111111111011; 
-    ADCON1 = 0x0000; 	// Register 18-1:
-    ADCON2 = 0b0000010000000000;
-    ADCHS =  0b0000000000000011;
-    ADCSSL = 0b0000000000000100;		// Register 18-6: ADCSSL: A/D Input Scan Select Register
-    ADCON3 = 0x0002;          
-    
-    ADCON1bits.ADON = 1;
-}
-/*
+
 void ADC()
 {
     ADPCFG = 0b1111111111100111; 
@@ -80,7 +68,7 @@ void ADC()
     
     ADCON1bits.ADON = 1;
 }
-*/
+
 void CN(void)
 {
     CNEN1bits.CN5IE = 1; // Enable CN3 pin for interrupt detection
@@ -104,15 +92,7 @@ void pwm_conf(void)
     T2CONbits.TON=1;//ENCENDEMOS EL TIMER2
 }
 
-void __attribute__ ((interrupt, no_auto_psv)) _ADCInterrupt(void)
-{
-    ADCON1bits.ADON = 0;   // this must be executed before the end of 17th conversion
-    IFS0bits.ADIF = 0;
-    AD = ADCBUF0;
-    writeshex(AD);
-    ADCON1bits.ADON = 1;
-}
-/*
+
 void __attribute__ ((__interrupt__)) _ADCInterrupt(void)
 {
     ADCON1bits.ADON = 0;   // this must be executed before the end of 17th conversion
@@ -121,10 +101,9 @@ void __attribute__ ((__interrupt__)) _ADCInterrupt(void)
     AD1 = ADCBUF1;
     ADCf = ((float)AD1*234)/4095.0;
     ADCint = (int)ADCf;
-    writeshex(AD,0);
+    writeshex(AD,AD1);
     ADCON1bits.ADON = 1;
 }
-*/
 void __attribute__ ((interrupt, no_auto_psv)) _CNInterrupt(void)
 {
     IFS0bits.CNIF = 0;
@@ -153,23 +132,27 @@ void configuarttx(void)
     U1STAbits.UTXEN = 1;           // Enable UART Tx, solo activamos el envio
 }
 
-void writeshex(uint16_t A)
+void writeshex(uint16_t A, uint16_t B)
 {
     uint16_t mask=0x00FF;
     uint8_t FRAMEH=0x03;
     uint8_t FRAMEL=0xFC;
     uint8_t ADCLOW=mask&A;
     uint8_t ADCHIGH=mask&(A>>8);
-
+    uint8_t ADCLOW1=mask&B;
+    uint8_t ADCHIGH1=mask&(B>>8);
+    
     U1TXREG=FRAMEH;
     delay_us(50);
     U1TXREG=ADCLOW;
     delay_us(50);
     U1TXREG=ADCHIGH;
     delay_us(50);
-    U1TXREG=FRAMEL;
+    U1TXREG=ADCLOW1;
     delay_us(50);
-
+    U1TXREG=ADCHIGH1;
+    delay_us(50);
+    U1TXREG=FRAMEL;
 }
 /*
 void writeshex(uint16_t A, uint16_t B)
