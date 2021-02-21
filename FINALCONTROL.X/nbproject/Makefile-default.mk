@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=FINAL.c
+SOURCEFILES_QUOTED_IF_SPACED=prueba_adc.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/FINAL.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/FINAL.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/prueba_adc.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/prueba_adc.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/FINAL.o
+OBJECTFILES=${OBJECTDIR}/prueba_adc.o
 
 # Source Files
-SOURCEFILES=FINAL.c
+SOURCEFILES=prueba_adc.c
 
 
 
@@ -95,20 +95,20 @@ MP_LINKER_FILE_OPTION=,--script="/opt/microchip/xc16/v1.41/support/dsPIC30F/gld/
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/FINAL.o: FINAL.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/prueba_adc.o: prueba_adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/FINAL.o.d 
-	@${RM} ${OBJECTDIR}/FINAL.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  FINAL.c  -o ${OBJECTDIR}/FINAL.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/FINAL.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
-	@${FIXDEPS} "${OBJECTDIR}/FINAL.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/prueba_adc.o.d 
+	@${RM} ${OBJECTDIR}/prueba_adc.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  prueba_adc.c  -o ${OBJECTDIR}/prueba_adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/prueba_adc.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	@${FIXDEPS} "${OBJECTDIR}/prueba_adc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 else
-${OBJECTDIR}/FINAL.o: FINAL.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/prueba_adc.o: prueba_adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/FINAL.o.d 
-	@${RM} ${OBJECTDIR}/FINAL.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  FINAL.c  -o ${OBJECTDIR}/FINAL.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/FINAL.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
-	@${FIXDEPS} "${OBJECTDIR}/FINAL.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/prueba_adc.o.d 
+	@${RM} ${OBJECTDIR}/prueba_adc.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  prueba_adc.c  -o ${OBJECTDIR}/prueba_adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/prueba_adc.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	@${FIXDEPS} "${OBJECTDIR}/prueba_adc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

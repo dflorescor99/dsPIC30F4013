@@ -75,7 +75,7 @@ void ADC()
                                  //SSRC esta en 010 para que el timer 3 se encargue de la duracion del sampleo
     ADCON2 = 0b0000010000000100; //Seteamos el bit CSCNA para escanear multiples entradas, eso hace que la seleccion de canales en 
                                  //ADCHS sea ignorada,SMPI esta en 0001 para que la interrupcion se de despues de completar la segunda secuencia de muestreo/conversion  
-    ADCON3 = 0b0000000000000000; //Con esta configuracion un TAD = TCY/2
+    ADCON3 = 0b0000000000000010; //Con esta configuracion un TAD = TCY/2
     ADCHS =  0b0000000000000010;
     ADCSSL = 0b0000000000010100; // Escaneo del canal, elegimos AN2 Y AN4 como fuentes para el canal
 }
