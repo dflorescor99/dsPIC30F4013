@@ -42,6 +42,9 @@ void delay_us (unsigned int delay_count);
 
 unsigned int set_value=0;
 float auxf=0.0;
+float coef[4]={1.0,1.0,4.0,-3.92};
+float val[4]={0.0,0.0,0.0,0.0};
+float Y=0.0;
 uint16_t pwm_duty=0;
 uint16_t aux=0;
 uint16_t ADCValue0=0;
@@ -68,10 +71,18 @@ int main(void) {
         ADCValue0 = ADCBUF0;
         ADCValue1 = ADCBUF1;
         signal=~signal;
-        auxf=(aux-ADCValue1)*3000.0/(4095.0);
+        auxf=(aux-ADCValue1)*1.0;
+        val[2]=auxf;
+        val[0]=coef[1]*val[1]+coef[2]*val[2]+coef[3]*val[3];
+        auxf=val[0]*3000.0/4095.0;
+        
+        val[1]=val[0];
+        val[3]=val[2];
+        
         pwm_duty=(int)auxf;
         if (aux==0){
             pwm_duty=0;
+            val[0]=0.0,val[1]=0.0,val[2]=0.0,val[3]=0.0;
         }
         OC1RS=pwm_duty;
         writeshex(signal,ADCValue0,ADCValue1);
