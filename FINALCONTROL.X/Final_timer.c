@@ -43,6 +43,8 @@ void delay_us (unsigned int delay_count);
 unsigned int set_value=0;
 float auxf=0.0;
 float coef[4]={1.0,1.0,4.0,-3.92};
+            //El compensador es 4*(1-0.98z^-1)/(1-z^-1)=Y[n]/X[n] ó 4*(z-0.98)/(z-1)=Y[n]/X[n]
+            //Y[n],Y[n-1],X[n],X[n-1]
 float val[4]={0.0,0.0,0.0,0.0};
 float Y=0.0;
 uint16_t pwm_duty=0;
@@ -78,7 +80,7 @@ int main(void) {
         
         val[1]=val[0];
         val[3]=val[2];
-        
+        val[2]=0;
         pwm_duty=(unsigned int)auxf;
         if (aux==0){
             pwm_duty=0;
