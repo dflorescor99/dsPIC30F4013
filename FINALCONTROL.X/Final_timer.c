@@ -79,7 +79,7 @@ int main(void) {
         val[1]=val[0];
         val[3]=val[2];
         
-        pwm_duty=(int)auxf;
+        pwm_duty=(unsigned int)auxf;
         if (aux==0){
             pwm_duty=0;
             val[0]=0.0,val[1]=0.0,val[2]=0.0,val[3]=0.0;
@@ -137,7 +137,6 @@ void conf_adc(void)
     //in this example RB2/AN2 is the input
     // Sample time is TMR3, Tad = internal Tcy/2
     // Interrupcion despues de una conversion
-    // set TMR3 to time out every 100 mSecs
     
 }
 
@@ -158,6 +157,8 @@ void conf_timer(void)
 
 void __attribute__ ((interrupt, no_auto_psv)) _CNInterrupt(void)
 {
+    //En esta interruocion seteo el valor de la referencia, que sería el valor
+    //del escalon/valor de tension que queremos
     IFS0bits.CNIF = 0;
     CNEN1bits.CN6IE = 0;
     if (~LATBbits.LATB4){
