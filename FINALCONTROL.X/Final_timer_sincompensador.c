@@ -1,8 +1,8 @@
 /*
- * File:   Final_timer.c
+ * File:   Final_timer_sincompensador.c
  * Author: root
  *
- * Created on February 22, 2021, 1:52 AM
+ * Created on February 22, 2021, 10:38 PM
  */
 
 // FOSC
@@ -42,17 +42,6 @@ void delay_us (unsigned int delay_count);
 
 unsigned int set_value=0;
 double auxf=0.0;
-double coef[4]={1.0,1.0,4.0,-3.92};
-            //El compensador es 4*(1-0.98z^-1)/(1-z^-1)=Y[n]/X[n] ó 4*(z-0.98)/(z-1)=Y[n]/X[n]
-            //Y[n],Y[n-1],X[n],X[n-1]
-double val[4]={0.0,0.0,0.0,0.0};
-
-#define Xn val [2]
-#define Xn_1 val [3]
-#define Yn val[0]
-#define Yn_1 val[1]
-
-
 int16_t pwm_duty=0;
 int16_t aux=0;
 int16_t ADCValue0=0;
@@ -80,28 +69,11 @@ int main(void) {
         ADCValue1 = ADCBUF1;
         signal=~signal;
         
-        auxf=(aux-ADCValue1)*1.0;
-        
-        Xn=auxf;
-        Yn=Yn_1+4.0*Xn-3.92*Xn_1;
-        auxf=Yn*2999.0/4095.0;
-        
-        Yn_1=Yn;
-        Xn_1=Xn;
-        Xn=0;
-        /*val[2]=auxf;
-        val[0]=coef[1]*val[1]+coef[2]*val[2]+coef[3]*val[3];
-        auxf=val[0]*2999.0/4095.0;
-        
-        val[1]=val[0];
-        val[3]=val[2];
-        val[2]=0;*/
-        
+        auxf=(aux-ADCValue1)*2999.0/2999.0;
         pwm_duty=(int)auxf;
       
         if (aux==0){
             pwm_duty=0;
-            Yn=0.0,Yn_1=0.0,Xn=0.0,Xn_1=0.0;
         }
         OC1RS=pwm_duty;
         writeshex(signal,ADCValue0,ADCValue1);
@@ -144,7 +116,7 @@ void conf_adc(void)
 {
     ADPCFG = 0b1111111111110011; //Ponemos todas las entradas como digitales menos AN2(RB2) y AN3(RB3)
     ADCON1 = 0b0000000001000000;
-    ADCON3 = 0b0000000000100111;
+    ADCON3 = 0b0000000000010011;
     ADCON2 = 0b0000010000000100;
     ADCHS  = 0b0000000000000000;
     ADCSSL = 0b0000000000001100;

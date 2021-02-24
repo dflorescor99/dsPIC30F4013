@@ -16,6 +16,7 @@
       <itemPath>FINAL.c</itemPath>
       <itemPath>prueba_adc.c</itemPath>
       <itemPath>Final_timer.c</itemPath>
+      <itemPath>Final_timer_sincompensador.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -198,6 +199,34 @@
         <property key="save-temps" value="false"/>
       </C30Global>
       <item path="FINAL.c" ex="true" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="Final_timer.c" ex="true" overriding="false">
+      </item>
+      <item path="Final_timer_sincompensador.c" ex="false" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
       </item>
       <PICkit3PlatformTool>
         <property key="ADC" value="true"/>
@@ -718,6 +747,18 @@
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Simulator>
       <item path="prueba_adc.c" ex="true" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
       </item>
     </conf>
   </confs>
